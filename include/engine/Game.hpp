@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "game/GameObject.hpp"
+#include "SDL3_ttf/SDL_ttf.h"
 
 class Game {
     public:
@@ -13,10 +14,16 @@ class Game {
         void processInput();
         void update(float deltaTime);
         void render();
+        void renderScore(int score, float x, float y);
+
+        const float FPS = 60.0f;
 
         SDL_Window* window;
         SDL_Renderer* renderer;
+        TTF_Font* font;
         std::vector<GameObject*> gameObjects;
         bool isRunning;
-        const float FPS = 60.0f;
+
+        int aScore;
+        int bScore;
 };
